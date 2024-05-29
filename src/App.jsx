@@ -1,4 +1,3 @@
-import logo from "./logo.svg";
 import "./App.css";
 import axios from "axios";
 import { useEffect, useState } from "react";
@@ -9,7 +8,9 @@ function App() {
   const [data, setData] = useState();
   const getData = async () => {
     try {
-      const response = await axios.get("http://localhost:8080/api/v1/boards");
+      const response = await axios.get(
+        "http://35.184.254.51:8080/api/v1/boards"
+      );
       setData(response.data);
       console.log(response);
       console.log(response.data);
@@ -19,10 +20,13 @@ function App() {
   };
   const postData = async () => {
     try {
-      const response = await axios.post("http://localhost:8080/api/v1/boards", {
-        userName: name,
-        title: title,
-      });
+      const response = await axios.post(
+        "http://35.184.254.51:8080/api/v1/boards",
+        {
+          userName: name,
+          title: title,
+        }
+      );
       console.log(response);
       getData();
     } catch (error) {
